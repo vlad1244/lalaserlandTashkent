@@ -1,284 +1,575 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lalaser land Tashkent - Акции на лазерную эпиляцию</title>
+    <title>lalaser land — Лазерная эпиляция в Ташкенте</title>
 
-    <!-- Preconnect к внешним ресурсам — ускоряет загрузку -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="icon" href="https://img2.creatium.app/disk2/a6/c9/ae/8ada203328796870d9b04859f3e5a61bef/logotip.png">
 
-    <!-- Google Fonts через <link> вместо @import — не блокирует рендеринг -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1639344120646193');
-    fbq('track', 'PageView');
+    fbq('init','1639344120646193');
+    fbq('track','PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1639344120646193&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome — загружаем только нужные иконки через kit или полный CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    src="https://www.facebook.com/tr?id=1639344120646193&ev=PageView&noscript=1"/></noscript>
 
     <style>
+        @font-face {
+            font-family: 'TTNorms';
+            font-display: swap;
+            src: url('//static.creatium.app/fonts/ttnorms/343165_D_0.woff2') format('woff2'),
+                 url('//static.creatium.app/fonts/ttnorms/343165_D_0.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            font-display: swap;
+            font-weight: 400;
+            src: local('Open Sans'), url(https://fonts.gstatic.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5UbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+        }
+        @font-face {
+            font-family: 'Open Sans';
+            font-display: swap;
+            font-weight: 700;
+            src: local('Open Sans Bold'), url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzAcuEIXEaFWBWXA4NoGd_Oo.woff) format('woff');
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fffafb;
-            color: #4a4a4a;
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+            color: #333;
+            background: #fff;
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+        /* BUTTON */
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 25px 40px;
+            background: rgb(240, 70, 130);
+            color: #fff !important;
+            font-family: 'TTNorms', 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn-cta:hover { background: rgb(238, 41, 111); }
+        .btn-cta svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
+
+        /* ─── HERO ─── */
+        .s-hero { background: #fff; padding: 100px 0 51px; }
+        @media (max-width: 768px) { .s-hero { padding: 30px 0 30px; } }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 48.8% 51.2%;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-right { order: -1; }
         }
 
-        /* Убрал backdrop-filter — тяжёл на мобильных, заменил на простой белый фон */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(255, 182, 193, 0.3);
+        .hero-title {
+            font-family: 'TTNorms', 'Open Sans', sans-serif;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: #000;
+            margin-bottom: 10px;
+        }
+        .hero-title span { color: rgb(240, 70, 130); }
+        @media (max-width: 768px) { .hero-title { font-size: 28px; } }
+
+        .hero-prices {
+            list-style: none;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 20px 0 25px;
+        }
+        .hero-prices li {
+            padding: 3px 0 3px 40px;
+            background: url('https://img.creatium.app/9f/00/8d/b1782b9c6bf11ab23b9b2e6e0e190bf25b/OK.png') left center / 30px no-repeat;
+            min-height: 30px;
+        }
+        .hero-prices li + li { margin-top: 7px; }
+
+        /* Right: hero photo + floating card */
+        .hero-right {
+            position: relative;
+            height: 500px;
+        }
+        @media (max-width: 768px) { .hero-right { height: 340px; } }
+
+        .hero-photo {
+            position: absolute;
+            right: 0; top: -20px;
+            width: 540px; height: 620px;
+            background: url('https://img2.creatium.app/disk2/7e/34/44/653907b5cbc169d6eb8c0fdf2b215c391a/master_v_studii_sj.png') center/cover no-repeat;
+            border-radius: 20px;
+        }
+        @media (max-width: 992px) {
+            .hero-photo { width: 430px; height: 534px; right: 0; top: 0; }
+        }
+        @media (max-width: 768px) {
+            .hero-photo { left: 0; top: 20px; width: 300px; height: 340px; right: auto; }
         }
 
-        .cta-button {
-            background: linear-gradient(135deg, #ff85a1 0%, #ffb3c1 100%);
-            box-shadow: 0 10px 20px -5px rgba(255, 133, 161, 0.4);
+        .hero-card {
+            position: absolute;
+            left: -50px; top: -30px;
+            width: 270px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            padding: 30px 20px;
+            text-align: center;
+            z-index: 9;
+        }
+        @media (max-width: 992px) { .hero-card { left: -29px; top: 20px; width: 262px; } }
+        @media (max-width: 768px) { .hero-card { left: 0; top: 21px; width: 262px; } }
+
+        .hero-card img {
+            width: 90px; height: 90px;
+            border-radius: 50%; object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .hero-card-title {
+            font-family: 'TTNorms', sans-serif;
+            font-size: 16px; line-height: 1.4;
+            margin-bottom: 6px;
+        }
+        .hero-card-sub { font-size: 14px; line-height: 1.6; opacity: 0.7; }
+
+        /* ─── EQUIPMENT ─── */
+        .s-equipment { background: rgb(245,245,245); padding: 50px 0; }
+
+        .equip-grid {
+            display: grid;
+            grid-template-columns: 46.5% 53.5%;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .equip-grid { grid-template-columns: 1fr; }
+            .equip-img { display: none; }
         }
 
-        .old-price {
-            text-decoration: line-through;
-            color: #d1d5db;
+        .equip-img img { width: 100%; border-radius: 25px; }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            background: rgb(240, 70, 130);
+            color: #fff;
+            border-radius: 5px;
+            font-size: 12px;
+            letter-spacing: 0.07em;
+            margin-bottom: 20px;
         }
 
-        .badge-sale {
-            background: #ff4d6d;
-            color: white;
-            font-size: 0.65rem;
-            padding: 2px 10px;
-            border-radius: 99px;
+        .equip-title {
+            font-family: 'TTNorms', 'Open Sans', sans-serif;
+            font-size: 40px; font-weight: 400; line-height: 1.2;
+            color: rgb(240, 70, 130);
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) { .equip-title { font-size: 32px; } }
+
+        .equip-text { font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+
+        .equip-list { list-style: none; margin-bottom: 25px; }
+        .equip-list li {
+            padding: 6px 0 6px 32px;
+            background: url('https://img2.creatium.app/disk2/a6/c9/ae/8ada203328796870d9b04859f3e5a61bef/logotip.png') left center / 24px no-repeat;
+            min-height: 24px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .equip-list li + li { margin-top: 6px; }
+
+        /* ─── GALLERY (hidden on mobile) ─── */
+        .s-gallery { background: #fff; padding: 25px 0 100px; }
+        @media (max-width: 768px) { .s-gallery { display: none; } }
+
+        .gallery-title {
+            font-family: 'TTNorms', 'Open Sans', sans-serif;
+            font-size: 56px; font-weight: 400; line-height: 1.2;
+            color: rgb(240, 70, 130);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-wrap { position: relative; overflow: hidden; border-radius: 5px; margin-bottom: 5px; }
+        .gallery-slides { display: flex; transition: transform 0.4s ease; }
+        .gallery-slide { flex: 0 0 100%; }
+        .gallery-slide > div { height: 350px; background: center/cover no-repeat; border-radius: 5px; }
+
+        .g-prev, .g-next {
+            position: absolute; top: 0; height: 100%; width: 20%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 30px; opacity: 0.5;
+            cursor: pointer; transition: opacity 0.2s, background 0.2s;
+            text-shadow: 0 0 2px #000;
+        }
+        .g-prev { left: 0; }
+        .g-next { right: 0; }
+        .g-prev:hover, .g-next:hover { background: rgba(0,0,0,0.2); opacity: 1; }
+
+        .gallery-pages {
+            display: flex; gap: 5px; height: 125px; margin-bottom: 40px;
+        }
+        .gallery-page {
+            flex: 1; border-radius: 5px; overflow: hidden;
+            background: center/cover no-repeat;
+            opacity: 0.4; filter: grayscale(1);
+            cursor: pointer; transition: opacity 0.3s, filter 0.3s;
+            border: 5px solid transparent;
+        }
+        .gallery-page.is-active {
+            opacity: 1; filter: grayscale(0);
+            border-color: rgb(240, 70, 130);
+        }
+
+        /* ─── REVIEWS ─── */
+        .s-reviews { background: rgb(245,245,245); padding: 70px 0 80px; }
+
+        .reviews-title {
+            font-family: 'TTNorms', 'Open Sans', sans-serif;
+            font-size: 44px; font-weight: 400; line-height: 1.2;
+            text-align: center; margin-bottom: 20px;
+        }
+        @media (max-width: 768px) { .reviews-title { font-size: 32px; } }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+        .bubble { background: #000; border-radius: 4px; padding: 26px; }
+        .bubble-text {
+            font-size: 16px; line-height: 1.5;
+            color: rgba(255,255,255,0.69);
+            font-style: italic;
+        }
+        .bubble-angle {
+            width: 43px; height: 24px; overflow: hidden; margin-left: 13px;
+        }
+        .bubble-angle::before {
+            content: '';
+            display: block;
+            margin-top: -29px; margin-left: -19px;
+            width: 43px; height: 43px;
+            background: #000;
+            transform: rotate(50deg);
+        }
+        .bubble-name {
+            font-size: 18px; font-weight: bold;
+            color: rgb(238, 41, 111);
+            padding-left: 5px;
+            margin-top: 8px;
+        }
+
+        .reviews-divider {
+            border: none;
+            border-top: 2px dashed rgba(240,70,130,0.25);
+            margin: 25px 0;
+        }
+        .reviews-cta-text { font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
+
+        /* ─── FAQ ─── */
+        .s-faq { background: #fff; padding: 100px 0; }
+        @media (max-width: 768px) { .s-faq { padding: 50px 0; } }
+
+        .faq-title {
+            font-family: 'TTNorms', 'Open Sans', sans-serif;
+            font-size: 56px; font-weight: 400; line-height: 1.2;
+            color: rgb(240, 70, 130);
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) { .faq-title { font-size: 32px; } }
+
+        .spoiler {
+            background: rgb(254,246,249);
+            border-radius: 5px;
+            color: rgb(46,4,19);
+            padding: 0 25px;
+            margin-bottom: 8px;
+        }
+        .spoiler-hd {
+            padding: 15px 5px;
+            padding-right: 25px;
+            position: relative;
             text-transform: uppercase;
-            font-weight: 700;
+            cursor: pointer;
+            font-family: 'TTNorms', 'Open Sans', sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1.6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        /* will-change: transform — подсказка браузеру создать отдельный слой */
-        .pulse {
-            animation: pulse-animation 2s infinite;
-            will-change: box-shadow;
+        .spoiler-icon {
+            font-size: 14px; flex-shrink: 0; margin-left: 10px;
+            transition: transform 0.2s ease;
         }
-
-        @keyframes pulse-animation {
-            0%   { box-shadow: 0 0 0 0px rgba(255, 133, 161, 0.4); }
-            100% { box-shadow: 0 0 0 15px rgba(255, 133, 161, 0); }
+        .spoiler.open .spoiler-icon { transform: rotate(180deg); }
+        .spoiler-body {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding: 15px 0;
+            display: none;
+            font-size: 16px; line-height: 1.5;
         }
+        .spoiler.open .spoiler-body { display: block; }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .faq-btn { margin-top: 40px; }
 
-        .pink-gradient-border {
-            border-left: 4px solid #ff85a1;
+        /* ─── FOOTER ─── */
+        .footer {
+            background: rgb(245,245,245);
+            padding: 25px 0;
+            text-align: center;
         }
-
-        /* Стабилизирует размер аватарки до загрузки изображения */
-        .avatar-wrap {
-            width: 96px;
-            height: 96px;
-            flex-shrink: 0;
-        }
+        .footer p { font-size: 16px; line-height: 1.6; opacity: 0.5; }
+        .footer a { color: inherit; }
     </style>
 </head>
-<body class="flex justify-center min-h-screen pb-28">
+<body>
 
-    <div class="w-full max-w-md px-5 py-8 flex flex-col items-center">
-
-        <!-- Аватарка и заголовок -->
-        <div class="relative mb-4">
-            <div class="avatar-wrap rounded-full p-1 bg-gradient-to-tr from-pink-400 to-pink-100 shadow-lg">
-                <!-- width/height заданы явно — предотвращает Layout Shift (CLS) -->
-                <img
-                    src="avatar.jpg"
-                    alt="lalaser land Tashkent"
-                    width="88"
-                    height="88"
-                    loading="eager"
-                    decoding="async"
-                    class="w-full h-full object-cover rounded-full border-2 border-white"
-                >
+<!-- HERO -->
+<section class="s-hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-left">
+                <h1 class="hero-title">
+                    <strong>Лазерная эпиляция в Ташкенте&nbsp;<span>со скидкой</span></strong>
+                </h1>
+                <ul class="hero-prices">
+                    <li>Бикини + подмышки: <span style="color:#a0a0a0;text-decoration:line-through">500.000 сум</span>&nbsp;<strong style="color:rgb(238,41,111)">250.000 сум</strong></li>
+                    <li>Всё тело: <span style="color:#a0a0a0;text-decoration:line-through">1.000.000 сум</span>&nbsp;<strong style="color:rgb(238,41,111)">650.000 сум</strong></li>
+                    <li>Зоны на выбор:&nbsp;<strong style="color:rgb(238,41,111)">скидка до 60%!</strong></li>
+                </ul>
+                <a href="https://t.me/lalaser_land_tashkent?text=Хочу+записаться+на+лазерную+эпиляцию" class="btn-cta" onclick="fbq('track','Lead')">
+                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    Записаться по акции
+                </a>
             </div>
-            <div class="absolute bottom-0 right-0 w-6 h-6 bg-pink-500 border-2 border-white rounded-full"></div>
-        </div>
-
-        <h1 class="text-xl font-bold text-gray-800 mb-1">lalaser land Tashkent</h1>
-        <p class="text-[10px] text-pink-400 mb-6 uppercase tracking-widest font-bold flex items-center">
-            <span class="w-1.5 h-1.5 bg-pink-400 rounded-full mr-2"></span> Эстетика вашего тела
-        </p>
-
-        <!-- Основной оффер -->
-        <div class="text-center mb-8 px-2">
-            <h2 class="text-2xl font-extrabold leading-tight text-gray-800 mb-3">
-                Забудьте о бритье <br><span class="text-pink-500 italic">наслаждайтесь гладкостью</span>
-            </h2>
-            <p class="text-gray-500 text-sm leading-relaxed">
-                Премиальный диодный лазер 1600W. Кожа как шелк уже после первой процедуры.
-            </p>
-        </div>
-
-        <!-- Блок акций -->
-        <div class="w-full space-y-4 mb-8">
-
-            <!-- Акция 1 -->
-            <div class="glass-card rounded-3xl p-5 shadow-sm relative overflow-hidden pink-gradient-border">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-bold text-gray-800">Бикини + Подмышки</h3>
-                    <span class="badge-sale">-50%</span>
+            <div class="hero-right">
+                <div class="hero-card">
+                    <img src="https://img2.creatium.app/disk2/a6/c9/ae/8ada203328796870d9b04859f3e5a61bef/logotip.png" alt="lalaser land">
+                    <p class="hero-card-title">Премиальный диодный лазер 1600W</p>
+                    <p class="hero-card-sub">Оцените первые изменения уже после одного визита</p>
                 </div>
-                <div class="flex items-baseline space-x-2">
-                    <span class="text-2xl font-black text-pink-500">250 000 сум</span>
-                    <span class="old-price text-sm">500 000</span>
-                </div>
-                <p class="text-[10px] text-gray-400 mt-2">Популярный выбор для первого визита</p>
-            </div>
-
-            <!-- Акция 2 -->
-            <div class="glass-card rounded-3xl p-5 shadow-sm border-pink-100 relative overflow-hidden border-2">
-                <div class="absolute top-0 right-0 bg-pink-400 text-white text-[10px] px-3 py-1 rounded-bl-xl font-bold uppercase">Выгода 329к</div>
-                <div class="flex justify-between items-start mb-1">
-                    <h3 class="font-bold text-gray-800 leading-tight">Бикини + Голени <br>+ Подмышки</h3>
-                </div>
-                <div class="flex items-baseline space-x-2">
-                    <span class="text-2xl font-black text-pink-500">371 000 сум</span>
-                    <span class="old-price text-sm">700 000</span>
-                </div>
-            </div>
-
-            <!-- Акция 3 -->
-            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-6 shadow-xl relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 w-20 h-20 bg-pink-500 opacity-20 rounded-full"></div>
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-bold text-lg text-white">Все тело</h3>
-                    <span class="bg-pink-500 text-white text-[10px] px-2 py-1 rounded-lg font-bold tracking-wider">MAXI</span>
-                </div>
-                <div class="flex items-baseline space-x-3">
-                    <span class="text-3xl font-black text-white">650 000 сум</span>
-                    <span class="text-gray-500 text-sm line-through">1 000 000</span>
-                </div>
-                <!-- fa-sparkles — доступна в FA 6.4 free -->
-                <p class="text-[11px] text-pink-200 mt-3 flex items-center">
-                    <i class="fas fa-sparkles mr-2"></i> Идеальная гладкость везде
-                </p>
-            </div>
-
-        </div>
-
-        <!-- КОНСТРУКТОР ЗОН (Свои зоны) -->
-        <div class="w-full mb-10">
-            <div class="bg-white border-2 border-dashed border-pink-200 rounded-3xl p-6 shadow-sm">
-                <div class="flex items-center justify-between mb-2">
-                    <h3 class="font-bold text-gray-800 flex items-center">
-                        <!-- fa-wand-magic-sparkles — правильное название в FA 6 -->
-                        <i class="fas fa-wand-magic-sparkles text-pink-400 mr-2"></i> Свои зоны
-                    </h3>
-                    <span class="text-xs font-black bg-pink-100 text-pink-600 px-2 py-1 rounded-lg">СКИДКА ДО 60%</span>
-                </div>
-                <p class="text-[13px] text-gray-500 mb-4">
-                    Выберите любые 3 зоны и более — закрепим за вами максимальную скидку.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-[10px] bg-pink-50 text-pink-500 px-3 py-1 rounded-full font-bold">Лицо</span>
-                    <span class="text-[10px] bg-pink-50 text-pink-500 px-3 py-1 rounded-full font-bold">Руки</span>
-                    <span class="text-[10px] bg-pink-50 text-pink-500 px-3 py-1 rounded-full font-bold">Спина</span>
-                    <span class="text-[10px] bg-pink-50 text-pink-500 px-3 py-1 rounded-full font-bold">Живот</span>
-                    <span class="text-[10px] bg-pink-50 text-pink-500 px-3 py-1 rounded-full font-bold">Бёдра</span>
-                </div>
+                <div class="hero-photo"></div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Преимущества -->
-        <div class="w-full grid grid-cols-2 gap-3 mb-10">
-            <div class="bg-white p-4 rounded-2xl text-center shadow-sm border border-pink-50">
-                <i class="fas fa-snowflake text-pink-300 text-xl mb-2"></i>
-                <h4 class="text-[10px] font-bold uppercase text-gray-400 tracking-widest">Комфорт</h4>
-                <p class="text-[11px] font-bold text-gray-700">Охлаждение -5°C</p>
+<!-- EQUIPMENT -->
+<section class="s-equipment">
+    <div class="container">
+        <div class="equip-grid">
+            <div class="equip-img">
+                <img src="https://img2.creatium.app/disk2/60/07/8e/828195042566bf1f6aeaca20b213e8b206/lazer_chatgpt_image_5_iyun_2026_g_19_57_07_1_1.png" alt="Soprano Titanium">
             </div>
-            <div class="bg-white p-4 rounded-2xl text-center shadow-sm border border-pink-50">
-                <i class="fas fa-heart text-pink-300 text-xl mb-2"></i>
-                <h4 class="text-[10px] font-bold uppercase text-gray-400 tracking-widest">Забота</h4>
-                <p class="text-[11px] font-bold text-gray-700">Премиум уход</p>
+            <div>
+                <span class="badge">НАШЕ ОБОРУДОВАНИЕ</span>
+                <h2 class="equip-title"><strong>Soprano Titanium:<br>премиум-уход</strong></h2>
+                <p class="equip-text">Мы работаем на инновационном аппарате Soprano Titanium. Его уникальность состоит в одновременном использовании трёх эффективных методик, что позволяет проводить процедуры качественно, быстро и максимально бережно для кожи.</p>
+                <ul class="equip-list">
+                    <li>Эффективная работа со светлыми, тёмными и тонкими волосами</li>
+                    <li>Деликатное и бережное воздействие даже на чувствительных зонах</li>
+                    <li>Встроенная система охлаждения предотвращает дискомфорт</li>
+                </ul>
+                <a href="https://t.me/lalaser_land_tashkent?text=Хочу+записаться+на+лазерную+эпиляцию" class="btn-cta" onclick="fbq('track','Lead')">
+                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    Записаться по акции
+                </a>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- ОТЗЫВЫ -->
-        <div class="w-full mb-10">
-            <div class="flex items-center justify-between mb-4 px-1">
-                <span class="text-sm font-bold text-gray-800 uppercase tracking-wider">Голоса красоты</span>
-                <div class="flex text-pink-400 text-[10px] items-center">
-                    <span class="text-gray-400 mr-2 text-[11px] font-bold">5.0</span>
-                    <!-- aria-label для доступности -->
-                    <span aria-label="5 из 5 звёзд">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </span>
-                </div>
+<!-- GALLERY (desktop only) -->
+<section class="s-gallery">
+    <div class="container">
+        <h2 class="gallery-title">Вот так наши студии выглядят внутри</h2>
+
+        <div class="gallery-wrap" id="galleryWrap">
+            <div class="gallery-slides" id="gSlides">
+                <div class="gallery-slide"><div style="background-image:url('https://img2.creatium.app/disk2/67/0a/4c/c6c647fbae40b2023de5e07c6b9464e114/img_20260507_194253_279_scaled.jpg')"></div></div>
+                <div class="gallery-slide"><div style="background-image:url('https://img2.creatium.app/disk2/2d/97/f5/46c8ad84f0eabe9c621aae47dc9445f4ed/img_20260507_191117_788_scaled.jpg')"></div></div>
+                <div class="gallery-slide"><div style="background-image:url('https://img2.creatium.app/disk2/3d/ec/c1/c061a7572216cedb72580b3839676d6911/img_1232_scaled.jpg')"></div></div>
+                <div class="gallery-slide"><div style="background-image:url('https://img2.creatium.app/disk2/8a/4c/a1/6890ed3bb6a9d1e8f1fbd2b3036cea7d69/img_3266_1_scaled.jpg')"></div></div>
+                <div class="gallery-slide"><div style="background-image:url('https://img2.creatium.app/disk2/78/00/5f/723372743b9d7a69f17a4209be98d5e889/img_20260507_193347_919.jpg')"></div></div>
+                <div class="gallery-slide"><div style="background-image:url('https://img2.creatium.app/disk2/18/94/a9/3793f6ee883bf53b9e03319c9f1ba398f0/img_7680_scaled.jpg')"></div></div>
             </div>
+            <div class="g-prev" onclick="gSlide(-1)">&#8249;</div>
+            <div class="g-next" onclick="gSlide(1)">&#8250;</div>
+        </div>
 
-            <div class="flex space-x-4 overflow-x-auto no-scrollbar pb-6 px-1">
-                <div class="min-w-[280px] bg-white p-6 rounded-3xl shadow-sm border border-pink-50">
-                    <p class="text-[13px] text-gray-600 italic mb-4 leading-relaxed">"Процедура прошла очень комфортно, мастер вежливая. Не сравнить с моим прошлым опытом!"</p>
-                    <p class="text-xs font-bold text-pink-500">— Мадина</p>
+        <div class="gallery-pages" id="gPages">
+            <div class="gallery-page is-active" style="background-image:url('https://img2.creatium.app/disk2/67/0a/4c/c6c647fbae40b2023de5e07c6b9464e114/img_20260507_194253_279_scaled.jpg')" onclick="gGo(0)"></div>
+            <div class="gallery-page" style="background-image:url('https://img2.creatium.app/disk2/2d/97/f5/46c8ad84f0eabe9c621aae47dc9445f4ed/img_20260507_191117_788_scaled.jpg')" onclick="gGo(1)"></div>
+            <div class="gallery-page" style="background-image:url('https://img2.creatium.app/disk2/3d/ec/c1/c061a7572216cedb72580b3839676d6911/img_1232_scaled.jpg')" onclick="gGo(2)"></div>
+            <div class="gallery-page" style="background-image:url('https://img2.creatium.app/disk2/8a/4c/a1/6890ed3bb6a9d1e8f1fbd2b3036cea7d69/img_3266_1_scaled.jpg')" onclick="gGo(3)"></div>
+            <div class="gallery-page" style="background-image:url('https://img2.creatium.app/disk2/78/00/5f/723372743b9d7a69f17a4209be98d5e889/img_20260507_193347_919.jpg')" onclick="gGo(4)"></div>
+            <div class="gallery-page" style="background-image:url('https://img2.creatium.app/disk2/18/94/a9/3793f6ee883bf53b9e03319c9f1ba398f0/img_7680_scaled.jpg')" onclick="gGo(5)"></div>
+        </div>
+
+        <a href="https://t.me/lalaser_land_tashkent?text=Хочу+записаться+на+лазерную+эпиляцию" class="btn-cta" onclick="fbq('track','Lead')">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            Записаться по акции
+        </a>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="s-reviews">
+    <div class="container">
+        <h2 class="reviews-title">А вот что говорят наши клиенты</h2>
+
+        <div class="reviews-grid">
+            <div>
+                <div class="bubble">
+                    <p class="bubble-text"><em>Отличная студия! Первые положительные изменения заметила очень быстро. Рада, что нашла своего мастера. Для меня важно, чтобы мастер был приятным собеседником, но и профессионалом в своём деле. У вас я нашла и то, и другое. Оборудование очень современное и комфортное в работе, а главное — я вижу тот эффект, на который и рассчитывала!</em></p>
                 </div>
-                <div class="min-w-[280px] bg-white p-6 rounded-3xl shadow-sm border border-pink-50">
-                    <p class="text-[13px] text-gray-600 italic mb-4 leading-relaxed">"Скидка 50% действительно работает. Сделала ноги и подмышки, цена супер."</p>
-                    <p class="text-xs font-bold text-pink-500">— Нигора</p>
+                <div class="bubble-angle"></div>
+                <p class="bubble-name">Саида</p>
+            </div>
+            <div>
+                <div class="bubble">
+                    <p class="bubble-text"><em>Настоятельно рекомендую это место! Очень приятный и вежливый персонал, новый аппарат. Прошла всего несколько сеансов и уже вижу отличный эффект. С мастером приятно беседовать, время пролетает незаметно. Безумно довольна тем, как меняется состояние кожи. Всем, кто хочет встретить лето во всеоружии и забыть о ежедневном уходе, однозначно сюда!</em></p>
                 </div>
-                <div class="min-w-[280px] bg-white p-6 rounded-3xl shadow-sm border border-pink-50">
-                    <p class="text-[13px] text-gray-600 italic mb-4 leading-relaxed">"Лазер очень мощный, волосы начали выпадать уже через 10 дней. Приду еще."</p>
-                    <p class="text-xs font-bold text-pink-500">— Севара</p>
+                <div class="bubble-angle"></div>
+                <p class="bubble-name">Екатерина</p>
+            </div>
+            <div>
+                <div class="bubble">
+                    <p class="bubble-text"><em>В студии очень аккуратно и чисто, а цены приятно удивляют. Мне всё очень понравилось! Я очень счастлива, что пришла именно сюда. Мастера просто профессионалы 🥰</em></p>
                 </div>
-                <div class="min-w-[280px] bg-pink-500 p-6 rounded-3xl shadow-lg flex flex-col justify-center items-center text-center text-white">
-                    <p class="font-bold mb-2">Ждем вас за гладкостью!</p>
-                    <i class="fas fa-heart text-2xl animate-bounce"></i>
-                </div>
+                <div class="bubble-angle"></div>
+                <p class="bubble-name">Мадина</p>
             </div>
         </div>
 
-        <!-- СТА Кнопка -->
-        <div class="w-full text-center sticky bottom-4 z-50">
-            <a href="https://t.me/lalaser_land_tashkent?text=Здравствуйте!%20Хочу%20записаться%20по%20акции"
-               rel="noopener noreferrer"
-               onclick="fbq('track', 'Lead');"
-               class="cta-button pulse flex items-center justify-center w-full py-5 rounded-2xl text-white font-bold text-xl shadow-2xl transition-all active:scale-95">
-                <i class="fab fa-telegram-plane mr-3 text-2xl"></i>
+        <hr class="reviews-divider">
+
+        <p class="reviews-cta-text">Запишитесь на лазерную эпиляцию в Ташкенте <strong>со скидкой!</strong> Напишите нам в Телеграм прямо сейчас 👇</p>
+
+        <a href="https://t.me/lalaser_land_tashkent?text=Хочу+записаться+на+лазерную+эпиляцию" class="btn-cta" onclick="fbq('track','Lead')">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            Записаться по акции
+        </a>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="s-faq">
+    <div class="container">
+        <h2 class="faq-title">Частые вопросы</h2>
+
+        <div class="spoiler">
+            <div class="spoiler-hd" onclick="toggleS(this)">
+                Насколько комфортна процедура?
+                <span class="spoiler-icon">▾</span>
+            </div>
+            <div class="spoiler-body">Благодаря встроенной системе охлаждения сеанс проходит максимально деликатно. Большинство клиентов отмечают лишь лёгкое тепло или приятное покалывание. Мы делаем всё, чтобы процесс был бережным и комфортным, подбирая настройки под индивидуальную чувствительность.</div>
+        </div>
+
+        <div class="spoiler">
+            <div class="spoiler-hd" onclick="toggleS(this)">
+                Сколько визитов может потребоваться?
+                <span class="spoiler-icon">▾</span>
+            </div>
+            <div class="spoiler-body">Количество сеансов всегда индивидуально и зависит от особенностей организма. В среднем для достижения желаемого эффекта может потребоваться от 6 до 10 визитов с определённым интервалом. Первые положительные изменения многие клиенты замечают уже после начальных процедур.</div>
+        </div>
+
+        <div class="spoiler">
+            <div class="spoiler-hd" onclick="toggleS(this)">
+                Эффективна ли процедура для светлых или тонких волос?
+                <span class="spoiler-icon">▾</span>
+            </div>
+            <div class="spoiler-body">Да, наше оборудование эффективно работает с большинством типов волос, включая светлые и тонкие. Мы подбираем индивидуальные настройки для каждого клиента, чтобы обеспечить бережное воздействие и качественный результат.</div>
+        </div>
+
+        <div class="spoiler">
+            <div class="spoiler-hd" onclick="toggleS(this)">
+                Как подготовиться к лазерной эпиляции и что делать после?
+                <span class="spoiler-icon">▾</span>
+            </div>
+            <div class="spoiler-body">Для лучшего эффекта мы рекомендуем за 14 дней до визита воздержаться от загара и использования методов, при которых волос удаляется полностью (например, воск или пинцет). В день процедуры кожа должна быть чистой. После сеанса в течение 48 часов желательно исключить посещение сауны или бассейна.</div>
+        </div>
+
+        <div class="spoiler">
+            <div class="spoiler-hd" onclick="toggleS(this)">
+                Безопасно ли это для кожи?
+                <span class="spoiler-icon">▾</span>
+            </div>
+            <div class="spoiler-body">Мы используем только сертифицированное оборудование последнего поколения, которое воздействует исключительно на волосяной фолликул, не затрагивая окружающие ткани. Встроенная интеллектуальная система контроля температуры и работа опытных специалистов способствуют бережному отношению к коже.</div>
+        </div>
+
+        <div class="faq-btn">
+            <a href="https://t.me/lalaser_land_tashkent?text=Хочу+записаться+на+лазерную+эпиляцию" class="btn-cta" onclick="fbq('track','Lead')">
+                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 Записаться по акции
             </a>
-            <p class="text-[10px] text-gray-400 mt-3 font-medium bg-white/90 inline-block px-4 py-1 rounded-full border border-pink-100">
-                <i class="fas fa-wand-magic-sparkles mr-1 text-pink-400"></i> Свободные места ограничены!
-            </p>
         </div>
-
-        <!-- Футер -->
-        <div class="mt-8 flex flex-col items-center opacity-40 mb-4">
-            <div class="flex space-x-6 mb-4">
-                <a href="#" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
-                <a href="#" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook text-xl"></i></a>
-            </div>
-            <p class="text-[9px] uppercase tracking-[0.2em] font-bold">lalaser land tashkent</p>
-        </div>
-
     </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <p>Lalaser Land Ташкент</p>
+        <p><a href="https://docs.google.com/document/d/1dYsRcw9dhw7ckvw3LgGx5iEL8qii_d4WfkKyGaJY1o0/edit?usp=sharing">Политика конфиденциальности</a></p>
+    </div>
+</footer>
+
+<script>
+    // Gallery
+    var gCurrent = 0, gTotal = 6;
+    function gUpdate() {
+        document.getElementById('gSlides').style.transform = 'translateX(-' + (gCurrent * 100) + '%)';
+        document.querySelectorAll('.gallery-page').forEach(function(p, i) {
+            p.classList.toggle('is-active', i === gCurrent);
+        });
+    }
+    function gSlide(d) { gCurrent = (gCurrent + d + gTotal) % gTotal; gUpdate(); }
+    function gGo(n) { gCurrent = n; gUpdate(); }
+    setInterval(function() { gSlide(1); }, 5000);
+
+    // FAQ accordion
+    function toggleS(hd) {
+        var sp = hd.parentElement;
+        var wasOpen = sp.classList.contains('open');
+        document.querySelectorAll('.spoiler').forEach(function(s) { s.classList.remove('open'); });
+        if (!wasOpen) sp.classList.add('open');
+    }
+</script>
 
 </body>
 </html>
